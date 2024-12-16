@@ -4,11 +4,18 @@ import java.time.LocalDate;
 
 import com.samuelsoares.client.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class ClientDTO {
 
 	private Long id;
-	private String name;
+	
+	@NotBlank(message = "Campo requerido")
+	private String name;	
 	private String cpf;
+	
+	@PastOrPresent
 	private LocalDate birthDate;
 	private Integer children;
 
